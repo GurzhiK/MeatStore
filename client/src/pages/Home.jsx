@@ -7,7 +7,6 @@ import Skeleton from '../components/CartObject/Skeleton';
 import Sort from '../components/Sort';
 import axios from 'axios'
 import { SearchContext } from '../App';
-import Pagination from './../components/Pagination/index';
 
 const Home = () => {
   const { searchValue } = React.useContext(SearchContext);
@@ -48,11 +47,11 @@ const Home = () => {
   return (
     <div>
       <div className="w-full h-[100vh] bg-no-repeat bg-cover bg-fixed bg-background">
-        <div className=" flex flex-col items-left px-[10vh] gap-4">
-          <h1 className="text-[#fff] text-[60px] text-left font-bold mt-[35vh] lg:text-center">
+        <div className=" flex flex-col items-left px-[5vh] gap-4">
+          <h1 className="text-[#fff] text-[60px] text-left font-bold mt-[35vh] lg:text-center md:text-[40px]">
             СВЕЖЕЕ МЯСО <br />ЗАЛОГ ЗДОРОВОГО<br /> ЖЕЛУДКА
           </h1>
-          <p className="text-gray-400 text-xl font-main">
+          <p className="text-gray-400 text-xl font-main lg:text-center">
             Адекватное качество по реальной цене
           </p>
         </div>
@@ -76,7 +75,7 @@ const Home = () => {
               isLoading ? skeletons : meats}
           </div>
         </section>
-        <Pagination />
+
       </section>
       {/* items.map((obj) => <CartObject key={obj.id} {...obj} />) */}
       <Panel />

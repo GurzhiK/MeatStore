@@ -32,3 +32,13 @@ html {
 #page-numbers li button.active {
   background-color: #007bff;
 }
+
+@media (max-width: 768px) {
+  .hidden {
+    display: none !important;
+  }
+
+  .block {
+    display: block !important;
+  }
+}

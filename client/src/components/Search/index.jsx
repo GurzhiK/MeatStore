@@ -12,7 +12,7 @@ const Search = () => {
         <input
           value={searchValue}
           onChange={(event) => setSearchValue(event.target.value)}
-          className="bg-[#9c9c9c3d] focus:ring-0 focus:outline-none w-[20vw] rounded-md py-1 pl-10 text-white font-extralight" type="text" aria-label="Filter projects" placeholder="Найдется все..." />
+          className="bg-[#9c9c9c3d] focus:ring-0 focus:outline-none w-[20vw] sm:w-full rounded-md py-1 pl-10 text-white font-extralight" type="text" aria-label="Filter projects" placeholder="Найдется все..." />
       </form>
     </div >
 

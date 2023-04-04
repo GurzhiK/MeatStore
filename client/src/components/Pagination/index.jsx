@@ -6,28 +6,45 @@ const Pagination = ({ pageLimit = 2 }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalItemsCount, setTotalItemsCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get('http://127.0.0.1:8000/api/products/')
+      .get(`http://127.0.0.1:8000/api/products/?limit=${pageLimit}&offset=0`)
       .then((res) => {
-        setTotalItemsCount(res.data.length);
+        setProducts(res.data.results);
+        setTotalItemsCount(res.data.count);
         setIsLoading(false);
       })
       .catch((err) => {
         console.log(err);
         setIsLoading(false);
       });
-  }, []);
+  }, [pageLimit]);
+
+  useEffect(() => {
+    setPageCount(Math.ceil(totalItemsCount / pageLimit));
+  }, [totalItemsCount, pageLimit]);
 
   const handleClick = (page) => {
     setCurrentPage(page);
   };
 
   useEffect(() => {
-    setPageCount(Math.ceil(totalItemsCount / pageLimit));
-  }, [totalItemsCount, pageLimit]);
+    const startIndex = (currentPage - 1) * pageLimit;
+    setIsLoading(true);
+    axios
+      .get(`http://127.0.0.1:8000/api/products/?limit=${pageLimit}&offset=${startIndex}`)
+      .then((res) => {
+        setProducts(res.data.results);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsLoading(false);
+      });
+  }, [currentPage, pageLimit]);
 
   const renderPagination = () => {
     const pages = [];
@@ -43,7 +60,19 @@ const Pagination = ({ pageLimit = 2 }) => {
         </button>
       );
     }
-    return pages;
+    return (
+      <>
+        {pages}
+        <div className="mt-2">
+          {products.map((product) => (
+            <div key={product.id}>
+              <h2>{product.name}</h2>
+              <p>{product.description}</p>
+            </div>
+          ))}
+        </div>
+      </>
+    );
   };
 
   const startIndex = (currentPage - 1) * pageLimit;

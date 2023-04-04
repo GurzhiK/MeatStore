@@ -5,9 +5,9 @@ export const Panel = () => {
     <>
       <section className=" px-[10vh] mt-24 ">
         {/* Блоки с плюсами Заголовок*/}
-        <div className="relative text-left ">
+        <div className="text-left ">
           <div>
-            <h2 className="text-secondary font-bold text-[60px] mt-24 mb-12">Гарантируем</h2>
+            <h2 className=" text-secondary font-bold text-[60px] mt-20 mb-12 bg-backgroundAll md:text-[40px]">Достоинства</h2>
           </div>
         </div>
         <div className=" rounded-md border-2 border-[#2E2E2E] flex bg-[#2020208e] p-14 lg:p-0 lg:bg-transparent lg:border-none justify-between lg:flex-col lg:items-center flex-wrap  mb-[25vh]">

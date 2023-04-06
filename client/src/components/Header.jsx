@@ -26,7 +26,7 @@ function Header() {
       </div>
 
       <nav>
-        <section className="MOBILE-MENU flex fixed w-full bg-[#27272780] backdrop-blur-[5px]">
+        <section className="MOBILE-MENU md:flex header:hidden lg:flex fixed w-full bg-[#27272780] backdrop-blur-[5px]">
           <div className="flex items-center justify-around w-full">
 
             <div

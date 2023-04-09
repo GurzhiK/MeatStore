@@ -1,21 +1,89 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import { SearchContext } from './../../App';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const Search = () => {
+  // получение значения поиска и функции установки значения из контекста
   const { searchValue, setSearchValue } = React.useContext(SearchContext);
-  return (
-    <div className="flex">
-      <form className="relative">
-        <svg width="20" height="20" fill="currentColor" className="absolute left-3 top-1/2 -mt-2.5 text-slate-400 pointer-events-none group-focus-within:text-blue-500" aria-hidden="true">
-          <path fillRule="evenodd" clipRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" />
-        </svg>
-        <input
-          value={searchValue}
-          onChange={(event) => setSearchValue(event.target.value)}
-          className="bg-[#9c9c9c3d] focus:ring-0 focus:outline-none w-[20vw] sm:w-full rounded-md py-1 pl-10 text-white font-extralight" type="text" aria-label="Filter projects" placeholder="Найдется все..." />
-      </form>
-    </div >
 
-  )
-}
+  // хук состояния для хранения продуктов
+  const [products, setProducts] = useState([]);
+
+  // хук эффекта, запрашивающий продукты с сервера при монтировании компонента
+  useEffect(() => {
+    axios
+      .get('http://127.0.0.1:8000/api/products/')
+      .then((res) => setProducts(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  // функция обработчика клика по ссылке на продукт, устанавливающая значение поиска в пустую строку
+  const handleLinkClick = () => {
+    setSearchValue('');
+  };
+
+  // фильтрация продуктов по значению поиска
+  const filteredProducts = products.filter((product) =>
+    product.title.toLowerCase().includes(searchValue.toLowerCase())
+  );
+
+  return (
+    // контейнер поисковой строки
+    <div className="flex relative">
+      {/* форма поиска */}
+      <form className="relative">
+        {/* иконка поиска */}
+        <svg
+          width="20"
+          height="20"
+          fill="currentColor"
+          className="absolute left-3 top-1/2 -mt-2.5 text-slate-400 pointer-events-none group-focus-within:text-blue-500"
+          aria-hidden="true"
+        >
+          <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+          />
+        </svg>
+        {/* поле ввода поиска */}
+        <input
+          type="text"
+          className="block w-full py-2 pl-10 pr-3 leading-5 text-gray-900 placeholder-gray-500 bg-gray-400 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+          placeholder="Поиск товаров"
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
+      </form>
+      <AnimatePresence>
+        {searchValue.length > 0 && (
+          <motion.div
+            className="absolute z-10 bg-[#e4e4e4ab] backdrop-blur-[5px] backdrop-grayscale-[80%] mt-8 w-full rounded-lg shadow-lg"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {filteredProducts.map((product) => (
+              <motion.div
+                key={product.id}
+                className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+              >
+                <Link to={`/CartPage/${product.id}`} onClick={handleLinkClick}>
+                  <p className="text-gray-700 hover:text-main font-medium font-main duration-300">
+                    {product.title}
+                  </p>
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
 export default Search;

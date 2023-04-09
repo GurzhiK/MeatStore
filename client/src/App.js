@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import CartPage from './pages/CartPage';
 import ShopCart from './pages/ShopCart';
+import CartObject from './components/CartObject';
 
 export const SearchContext = React.createContext();
 

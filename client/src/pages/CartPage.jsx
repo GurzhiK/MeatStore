@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-
 
 function CartPage() {
   const { id } = useParams();
@@ -38,8 +37,9 @@ function CartPage() {
             </ul>
           </div>
           <div>
-            <button href="#" className="text-white hover:text-gray-800 font-bold bg-main hover:bg-main duration-300 rounded-[25px] text-[17px] py-[10px] px-[30px] mt-8 ">В корзину</button>
+            <button href="#" className="text-white hover:text-gray-800 font-bold bg-main hover:bg-main duration-300 rounded-md text-[17px] w-44 h-10 mt-8 ">В корзину</button>
           </div>
+          <Link to='/'><button className="bg-transparent w-44 h-10 rounded-md border-2 border-gray-700 text-gray-500 hover:bg-gray-700 hover:text-white duration-300 mt-3">Вернуться назад</button></Link>
         </div>
       </div>
     </div>

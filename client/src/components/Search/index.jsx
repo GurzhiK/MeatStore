@@ -38,7 +38,7 @@ const Search = () => {
         <svg
           width="20"
           height="20"
-          fill="currentColor"
+          fill="#525252"
           className="absolute left-3 top-1/2 -mt-2.5 text-slate-400 pointer-events-none group-focus-within:text-blue-500"
           aria-hidden="true"
         >
@@ -60,7 +60,7 @@ const Search = () => {
       <AnimatePresence>
         {searchValue.length > 0 && (
           <motion.div
-            className="absolute z-10 bg-[#e4e4e4ab] backdrop-blur-[5px] backdrop-grayscale-[80%] mt-8 w-full rounded-lg shadow-lg"
+            className="absolute z-10 bg-[#e4e4e4ab] backdrop-blur-[5px] backdrop-grayscale-[80%] mt-8 w-full rounded-b-lg shadow-lg"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -73,7 +73,7 @@ const Search = () => {
                 animate={{ opacity: 1 }}
               >
                 <Link to={`/CartPage/${product.id}`} onClick={handleLinkClick}>
-                  <p className="text-gray-700 hover:text-main font-medium font-main duration-300">
+                  <p className="text-gray-700 hover:text-white font-medium font-main duration-300">
                     {product.title}
                   </p>
                 </Link>

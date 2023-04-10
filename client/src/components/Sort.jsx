@@ -26,7 +26,7 @@ function Sort({ value, onChangeSort }) {
     <div className="flex flex-col text-[292929] px-[6vh] mb-8 pt-8 flex-wrap text-[17px] lg:items-center " >
       <div className="flex flex-wrap">
         <b className="text-white">Сортировка по:  </b>
-        <span className="text-main duration-300 hover:text-mainLight font-light flex ml-1 cursor-pointer border-dotted border-b-[3px] border-main" onClick={() => setOpen(!open)}> {value.name} <img src={ArrowDown} alt='arrow' className="ml-2 cursor-pointer" /></span>
+        <span className="text-main duration-300 hover:text-mainLight font-light flex ml-1 cursor-pointer border-main" onClick={() => setOpen(!open)}> {value.name} <img src={ArrowDown} alt='arrow' className="ml-2 cursor-pointer" /></span>
         <button className="text-gray-500 hover:text-gray-400 duration-300 ml-4" onClick={onResetSort}>Сбросить</button>
       </div>
       {open && (

@@ -52,7 +52,7 @@ const Home = () => {
   return (
     <div>
       <div className="w-full h-[100vh] bg-no-repeat bg-cover bg-fixed bg-background">
-        <div className=" flex flex-col items-left px-[5vh] gap-4">
+        <div className=" flex flex-col items-left px-[100px] gap-4">
           <h1 className="text-[#fff] text-[60px] text-left font-bold mt-[35vh] lg:text-center md:text-[40px]">
             СВЕЖЕЕ МЯСО <br />ЗАЛОГ ЗДОРОВОГО<br /> ЖЕЛУДКА
           </h1>

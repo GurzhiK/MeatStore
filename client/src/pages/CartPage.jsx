@@ -18,7 +18,7 @@ function CartPage() {
   return (
     <div>
       <div className="px-40 py-40 justify-around flex-wrap rounded-md bg-[transparent] border-2 border-[#2E2E2E] min-h-[90vh] grid grid-flow-col content-around gap-5 lg:px-14 lg:py-14 lg:justify-between sm:items-center sm:justify-center sm:px-0 sm:grid-flow-row">
-        <div className="max-w-[50vw] sm:min-w-[70vw]">
+        <div className="max-w-[50vw] sm:min-w-[70vw] min-h-[40vh] bg-cover">
           <img src={product.imageUrl} alt="img" className="rounded-md" />
         </div>
         <div>

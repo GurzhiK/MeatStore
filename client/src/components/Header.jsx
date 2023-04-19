@@ -10,7 +10,7 @@ function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   return (
     <>
-      <div className="bg-[#27272780] backdrop-blur-[5px] lg:hidden backdrop-grayscale-[80%] z-10 flex flex-row px-[70px] py-[23px] justify-between items-center fixed w-full">
+      <div className="bg-[#27272780] backdrop-blur-[5px] lg:hidden backdrop-grayscale-[80%] z-10 flex flex-row px-[100px] py-[23px] justify-between items-center fixed w-full">
         <Link to="/"><img src={Logo} alt="text" /></Link>
         <ul className="flex flex-row gap-x-[64px] float-left w-full ml-[64px] font-html flex-wrap items-center">
           <li className="text-[#fff] text-[16px] hover:text-mainLight duration-300"><Link to="/">Главная</Link></li>

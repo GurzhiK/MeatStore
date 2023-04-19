@@ -7,7 +7,7 @@ function CartPage() {
   const [product, setProduct] = useState({});
 
   useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/api/products/detail/${id}/`).then((response) => {
+    axios.get(`http://gurzhapi.space/api/products/detail/${id}/`).then((response) => {
       setProduct(response.data);
     })
       .catch((err) => {

@@ -5,7 +5,7 @@ function Categories({ value, onChangeCategory }) {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/categories/')
+    axios.get('http://gurzhapi.space/api/categories/')
       .then((response) => {
         setCategories([{ id: null, name: 'Все' }, ...response.data]);
       })

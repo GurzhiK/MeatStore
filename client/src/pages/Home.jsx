@@ -28,6 +28,7 @@ const Home = () => {
     // const search = searchValue ? `&search=${searchValue}` : '';
     // axios.get(`http://127.0.0.1:8000/api/products/?ordering=title${sortBy}&ordering=${sortBy}&${category}&order=${order}&${search}&`)
     axios.get(`http://127.0.0.1:8000/api/products/?ordering=title${sortBy}&ordering=${sortBy}&${category}&order=${order}&`)
+      // axios.get(`gurzhapi.space/api/prdoucts/?ordering=title${sortBy}&ordering=${sortBy}&${category}&order=${order}&`)
       .then(res => {
         setItems(res.data);
         setIsLoading(false);

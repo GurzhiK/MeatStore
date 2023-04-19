@@ -57,6 +57,9 @@ module.exports = {
       backgroundImage: {
         background: "url('/src/assets/img/bgmain.jpg')",
         backgroundAll: "url('/src/assets/img/backgroundall.png')",
+        Panel: "url('/src/assets/img/panelcon/meat.png')",
+        Panel2: "url('/src/assets/img/panelcon/meat1.jpg')",
+        Panel3: "url('/src/assets/img/panelcon/meat2.jpg')",
       },
     },
   },

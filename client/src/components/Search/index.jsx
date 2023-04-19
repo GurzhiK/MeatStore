@@ -14,7 +14,7 @@ const Search = () => {
   // хук эффекта, запрашивающий продукты с сервера при монтировании компонента
   useEffect(() => {
     axios
-      .get('http://gurzhapi.space/api/products/')
+      .get('https://gurzhapi.space/api/products/')
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err));
   }, []);

@@ -27,7 +27,7 @@ export const Catalog = () => {
     // `http://127.0.0.1:8000/api-v1/products/?ordering=title${sortBy}&ordering=${sortBy}&${category}&${search}`,
 
     fetch(
-      `http://gurzhapi.space/products/?ordering=title${sortBy}&ordering=${sortBy}&${category}&order=${order}&${search}`,
+      `https://gurzhapi.space/products/?ordering=title${sortBy}&ordering=${sortBy}&${category}&order=${order}&${search}`,
     )
       .then((res) => res.json())
       .then((arr) => {
